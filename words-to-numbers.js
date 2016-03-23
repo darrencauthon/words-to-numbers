@@ -10,6 +10,8 @@ wtn.convert = function(input)
         var split = input.split(' ');
         if (split[0] == 'thirty')
             return this.singles.indexOf(split[1]) + 31;
+        if (split[0] == 'forty')
+            return this.singles.indexOf(split[1]) + 41;
         return this.singles.indexOf(split[1]) + 21;
     }
     return single + 1;

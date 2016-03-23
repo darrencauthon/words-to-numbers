@@ -70,6 +70,18 @@ describe("examples", function(){
         expect(wtn.convert("thirty nine")).toEqual(39);
     });
 
+    it("it should convert numbers >= 40 and <= 49", function(){
+        expect(wtn.convert("forty one")).toEqual(41);
+        expect(wtn.convert("forty two")).toEqual(42);
+        expect(wtn.convert("forty three")).toEqual(43);
+        expect(wtn.convert("forty four")).toEqual(44);
+        expect(wtn.convert("forty five")).toEqual(45);
+        expect(wtn.convert("forty six")).toEqual(46);
+        expect(wtn.convert("forty seven")).toEqual(47);
+        expect(wtn.convert("forty eight")).toEqual(48);
+        expect(wtn.convert("forty nine")).toEqual(49);
+    });
+
 });
 
 </script>
