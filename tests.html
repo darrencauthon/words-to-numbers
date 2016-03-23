@@ -26,6 +26,12 @@ describe("examples", function(){
         expect(wtn.convert("nine")).toEqual(9);
     });
 
+    it("it should not be case sensitive", function(){
+        expect(wtn.convert("One")).toEqual(1);
+        expect(wtn.convert("TWO")).toEqual(2);
+        expect(wtn.convert("threE")).toEqual(3);
+    });
+
 });
 
 </script>
