@@ -46,6 +46,18 @@ describe("examples", function(){
         expect(wtn.convert("twenty")).toEqual(20);
     });
 
+    it("it should convert numbers >= 21 and <= 29", function(){
+        expect(wtn.convert("twenty one")).toEqual(21);
+        expect(wtn.convert("twenty two")).toEqual(22);
+        expect(wtn.convert("twenty three")).toEqual(23);
+        expect(wtn.convert("twenty four")).toEqual(24);
+        expect(wtn.convert("twenty five")).toEqual(25);
+        expect(wtn.convert("twenty six")).toEqual(26);
+        expect(wtn.convert("twenty seven")).toEqual(27);
+        expect(wtn.convert("twenty eight")).toEqual(28);
+        expect(wtn.convert("twenty nine")).toEqual(29);
+    });
+
 });
 
 </script>
