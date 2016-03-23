@@ -142,6 +142,10 @@ describe("examples", function(){
         expect(wtn.convert("ninety nine")).toEqual(99);
     });
 
+    it("it should allow dashes", function(){
+        expect(wtn.convert("twenty-one")).toEqual(21);
+        expect(wtn.convert("thirty-three")).toEqual(33);
+    });
 
 });
 

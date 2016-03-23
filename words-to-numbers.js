@@ -36,7 +36,7 @@ wtn.tens = {
 
 wtn.convert = function(input)
 {
-    var words = input.split(' ');
+    var words = input.match(/([a-z]+)/gi);
     var total = 0;
     for (var i=0; i < words.length; i++){
         var word = words[i].toLowerCase();
