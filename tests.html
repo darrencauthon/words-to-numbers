@@ -15,7 +15,15 @@
 describe("examples", function(){
 
     it("it should convert numbers less than 10", function(){
-        expect(wtn.convert(1)).toEqual("one");
+        expect(wtn.convert("one")).toEqual(1);
+        expect(wtn.convert("two")).toEqual(2);
+        expect(wtn.convert("three")).toEqual(3);
+        expect(wtn.convert("four")).toEqual(4);
+        expect(wtn.convert("five")).toEqual(5);
+        expect(wtn.convert("six")).toEqual(6);
+        expect(wtn.convert("seven")).toEqual(7);
+        expect(wtn.convert("eight")).toEqual(8);
+        expect(wtn.convert("nine")).toEqual(9);
     });
 
 });
