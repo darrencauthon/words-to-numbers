@@ -58,6 +58,18 @@ describe("examples", function(){
         expect(wtn.convert("twenty nine")).toEqual(29);
     });
 
+    it("it should convert numbers >= 30 and <= 39", function(){
+        expect(wtn.convert("thirty one")).toEqual(31);
+        expect(wtn.convert("thirty two")).toEqual(32);
+        expect(wtn.convert("thirty three")).toEqual(33);
+        expect(wtn.convert("thirty four")).toEqual(34);
+        expect(wtn.convert("thirty five")).toEqual(35);
+        expect(wtn.convert("thirty six")).toEqual(36);
+        expect(wtn.convert("thirty seven")).toEqual(37);
+        expect(wtn.convert("thirty eight")).toEqual(38);
+        expect(wtn.convert("thirty nine")).toEqual(39);
+    });
+
 });
 
 </script>
