@@ -32,6 +32,20 @@ describe("examples", function(){
         expect(wtn.convert("threE")).toEqual(3);
     });
 
+    it("it should convert numbers >= 10 and <= 20", function(){
+        expect(wtn.convert("ten")).toEqual(10);
+        expect(wtn.convert("eleven")).toEqual(11);
+        expect(wtn.convert("twelve")).toEqual(12);
+        expect(wtn.convert("thirteen")).toEqual(13);
+        expect(wtn.convert("fourteen")).toEqual(14);
+        expect(wtn.convert("fifteen")).toEqual(15);
+        expect(wtn.convert("sixteen")).toEqual(16);
+        expect(wtn.convert("seventeen")).toEqual(17);
+        expect(wtn.convert("eighteen")).toEqual(18);
+        expect(wtn.convert("nineteen")).toEqual(19);
+        expect(wtn.convert("twenty")).toEqual(20);
+    });
+
 });
 
 </script>
