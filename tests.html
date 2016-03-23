@@ -82,6 +82,67 @@ describe("examples", function(){
         expect(wtn.convert("forty nine")).toEqual(49);
     });
 
+    it("it should convert numbers >= 50 and <= 59", function(){
+        expect(wtn.convert("fifty one")).toEqual(51);
+        expect(wtn.convert("fifty two")).toEqual(52);
+        expect(wtn.convert("fifty three")).toEqual(53);
+        expect(wtn.convert("fifty four")).toEqual(54);
+        expect(wtn.convert("fifty five")).toEqual(55);
+        expect(wtn.convert("fifty six")).toEqual(56);
+        expect(wtn.convert("fifty seven")).toEqual(57);
+        expect(wtn.convert("fifty eight")).toEqual(58);
+        expect(wtn.convert("fifty nine")).toEqual(59);
+    });
+
+    it("it should convert numbers >= 60 and <= 69", function(){
+        expect(wtn.convert("sixty one")).toEqual(61);
+        expect(wtn.convert("sixty two")).toEqual(62);
+        expect(wtn.convert("sixty three")).toEqual(63);
+        expect(wtn.convert("sixty four")).toEqual(64);
+        expect(wtn.convert("sixty five")).toEqual(65);
+        expect(wtn.convert("sixty six")).toEqual(66);
+        expect(wtn.convert("sixty seven")).toEqual(67);
+        expect(wtn.convert("sixty eight")).toEqual(68);
+        expect(wtn.convert("sixty nine")).toEqual(69);
+    });
+
+    it("it should convert numbers >= 70 and <= 79", function(){
+        expect(wtn.convert("seventy one")).toEqual(71);
+        expect(wtn.convert("seventy two")).toEqual(72);
+        expect(wtn.convert("seventy three")).toEqual(73);
+        expect(wtn.convert("seventy four")).toEqual(74);
+        expect(wtn.convert("seventy five")).toEqual(75);
+        expect(wtn.convert("seventy six")).toEqual(76);
+        expect(wtn.convert("seventy seven")).toEqual(77);
+        expect(wtn.convert("seventy eight")).toEqual(78);
+        expect(wtn.convert("seventy nine")).toEqual(79);
+    });
+
+    it("it should convert numbers >= 80 and <= 89", function(){
+        expect(wtn.convert("eighty one")).toEqual(81);
+        expect(wtn.convert("eighty two")).toEqual(82);
+        expect(wtn.convert("eighty three")).toEqual(83);
+        expect(wtn.convert("eighty four")).toEqual(84);
+        expect(wtn.convert("eighty five")).toEqual(85);
+        expect(wtn.convert("eighty six")).toEqual(86);
+        expect(wtn.convert("eighty seven")).toEqual(87);
+        expect(wtn.convert("eighty eight")).toEqual(88);
+        expect(wtn.convert("eighty nine")).toEqual(89);
+    });
+
+    it("it should convert numbers >= 90 and <= 99", function(){
+        expect(wtn.convert("ninety one")).toEqual(91);
+        expect(wtn.convert("ninety two")).toEqual(92);
+        expect(wtn.convert("ninety three")).toEqual(93);
+        expect(wtn.convert("ninety four")).toEqual(94);
+        expect(wtn.convert("ninety five")).toEqual(95);
+        expect(wtn.convert("ninety six")).toEqual(96);
+        expect(wtn.convert("ninety seven")).toEqual(97);
+        expect(wtn.convert("ninety eight")).toEqual(98);
+        expect(wtn.convert("ninety nine")).toEqual(99);
+    });
+
+
 });
 
 </script>
