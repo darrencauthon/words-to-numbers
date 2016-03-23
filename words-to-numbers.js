@@ -1,6 +1,27 @@
 wtn = {};
 
 wtn.singles = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
+wtn.singles = {
+                  'one': 1,
+                  'two': 2,
+                  'three': 3,
+                  'four': 4,
+                  'five': 5,
+                  'six': 6,
+                  'seven': 7,
+                  'eight': 8,
+                  'nine': 9,
+                  'ten': 10,
+                  'eleven': 11,
+                  'twelve': 12,
+                  'thirteen': 13,
+                  'fourteen': 14,
+                  'fifteen': 15,
+                  'sixteen': 16,
+                  'seventeen': 17,
+                  'eighteen': 18,
+                  'nineteen': 19
+              };
 
 wtn.tens = {
                'twenty': 20,
@@ -15,12 +36,14 @@ wtn.tens = {
 
 wtn.convert = function(input)
 {
-    var single = this.singles.indexOf(input.toLowerCase());
-    if (single == -1)
-    {
-        var split = input.split(' ');
-        if (wtn.tens[split[0]] != undefined)
-            return this.singles.indexOf(split[1]) + 1 + wtn.tens[split[0]];
+    var words = input.split(' ');
+    var total = 0;
+    for (var i=0; i < words.length; i++){
+        var word = words[i].toLowerCase();
+        if (this.tens[word] != undefined)
+            total += this.tens[word];
+        if (this.singles[word] != undefined)
+            total += this.singles[word];
     }
-    return single + 1;
+    return total;
 }
