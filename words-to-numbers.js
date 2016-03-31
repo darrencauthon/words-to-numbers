@@ -42,30 +42,30 @@ wtn.complicated_numbers = {
 
 wtn.convert = function(input)
 {
-    var words = input.match(/([a-z ]+ million|[a-z ]+ thousand|[a-z ]+ hundred|[a-z]+)/gi);
-    var total = 0;
-
-    var handleComplicatedNumber = function(word)
+    var handleComplicatedNumber = function(phrase)
     {
         for(var key in wtn.complicated_numbers){
-            if (word.indexOf(key) > -1)
+            if (phrase.indexOf(key) > -1)
             {
-                var counts = word.split(' ');
-                counts.pop();
-                return wtn.convert(counts.join(' ')) * wtn.complicated_numbers[key];
+                var words = phrase.split(' ');
+                words.pop();
+                return wtn.convert(words.join(' ')) * wtn.complicated_numbers[key];
             }
         }
         return 0;
     }
 
-    for (var i=0; i < words.length; i++){
-        var word = words[i].toLowerCase();
+    var phrases = input.match(/([a-z ]+ million|[a-z ]+ thousand|[a-z ]+ hundred|[a-z]+)/gi);
+    var total = 0;
 
-        total += handleComplicatedNumber(word);
-        if (this.tens[word] != undefined)
-            total += this.tens[word];
-        if (this.singles[word] != undefined)
-            total += this.singles[word];
+    for (var i=0; i < phrases.length; i++){
+        var phrase = phrases[i].toLowerCase();
+
+        total += handleComplicatedNumber(phrase);
+        if (this.tens[phrase] != undefined)
+            total += this.tens[phrase];
+        if (this.singles[phrase] != undefined)
+            total += this.singles[phrase];
     }
     return total;
 }
