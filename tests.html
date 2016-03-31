@@ -161,6 +161,8 @@ describe("examples", function(){
         expect(wtn.convert("ten thousand")).toEqual(10000);
         expect(wtn.convert("twenty thousand")).toEqual(20000);
         expect(wtn.convert("thirty thousand five hundred twenty nine")).toEqual(30529);
+        expect(wtn.convert("thirty two thousand five hundred twenty nine")).toEqual(32529);
+        expect(wtn.convert("nine hundred ninety nine thousand nine hundred ninety nine")).toEqual(999999);
     });
 
 });

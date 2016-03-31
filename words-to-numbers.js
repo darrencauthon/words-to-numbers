@@ -41,7 +41,14 @@ wtn.convert = function(input)
     for (var i=0; i < words.length; i++){
         var word = words[i].toLowerCase();
         if (word.indexOf('thousand') > -1)
-            total += wtn.convert(word.split(' ')[0]) * 1000;
+        {
+            var counts = [word.split(' ')[0]];
+            for (j=i-1; j >= 0; j--)
+                counts.unshift(words[j]);
+            total += wtn.convert(counts.join(' ')) * 1000;
+            for (j=i-1; j >= 0; j--)
+                total -= wtn.convert(words[j]);
+        }
         if (word.indexOf('hundred') > -1)
             total += wtn.convert(word.split(' ')[0]) * 100;
         if (this.tens[word] != undefined)
