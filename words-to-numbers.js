@@ -34,30 +34,34 @@ wtn.tens = {
                'ninety': 90
            };
 
+wtn.complicated_numbers = {
+                             'million':  1000000,
+                             'thousand': 1000,
+                             'hundred':  100,
+                          };
+
 wtn.convert = function(input)
 {
     var words = input.match(/([a-z ]+ million|[a-z ]+ thousand|[a-z ]+ hundred|[a-z]+)/gi);
     var total = 0;
+
+    var handleComplicatedNumber = function(word)
+    {
+        for(var key in wtn.complicated_numbers){
+            if (word.indexOf(key) > -1)
+            {
+                var counts = word.split(' ');
+                counts.pop();
+                return wtn.convert(counts.join(' ')) * wtn.complicated_numbers[key];
+            }
+        }
+        return 0;
+    }
+
     for (var i=0; i < words.length; i++){
         var word = words[i].toLowerCase();
-        if (word.indexOf('million') > -1)
-        {
-            var counts = word.split(' ');
-            counts.pop();
-            total += wtn.convert(counts.join(' ')) * 1000000;
-        }
-        else if (word.indexOf('thousand') > -1)
-        {
-            var counts = word.split(' ');
-            counts.pop();
-            total += wtn.convert(counts.join(' ')) * 1000;
-        }
-        else if (word.indexOf('hundred') > -1)
-        {
-            var counts = word.split(' ');
-            counts.pop();
-            total += wtn.convert(counts.join(' ')) * 100;
-        }
+
+        total += handleComplicatedNumber(word);
         if (this.tens[word] != undefined)
             total += this.tens[word];
         if (this.singles[word] != undefined)
