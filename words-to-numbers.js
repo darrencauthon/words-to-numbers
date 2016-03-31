@@ -36,11 +36,17 @@ wtn.tens = {
 
 wtn.convert = function(input)
 {
-    var words = input.match(/([a-z ]+ thousand|[a-z ]+ hundred|[a-z]+)/gi);
+    var words = input.match(/([a-z ]+ million|[a-z ]+ thousand|[a-z ]+ hundred|[a-z]+)/gi);
     var total = 0;
     for (var i=0; i < words.length; i++){
         var word = words[i].toLowerCase();
-        if (word.indexOf('thousand') > -1)
+        if (word.indexOf('million') > -1)
+        {
+            var counts = word.split(' ');
+            counts.pop();
+            total += wtn.convert(counts.join(' ')) * 1000000;
+        }
+        else if (word.indexOf('thousand') > -1)
         {
             var counts = word.split(' ');
             counts.pop();

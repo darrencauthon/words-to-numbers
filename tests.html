@@ -171,6 +171,13 @@ describe("examples", function(){
         expect(wtn.convert("ninety nine hundred")).toEqual(9900);
     });
 
+    it("it should convert millions", function(){
+        expect(wtn.convert("one million")).toEqual(1000000);
+        expect(wtn.convert("one million one hundred thousand")).toEqual(1100000);
+        expect(wtn.convert("nine hundred ninety nine million")).toEqual(999000000);
+        expect(wtn.convert("nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine")).toEqual(999999999);
+    });
+
 });
 
 </script>
