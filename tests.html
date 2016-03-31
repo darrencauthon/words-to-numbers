@@ -154,10 +154,13 @@ describe("examples", function(){
         expect(wtn.convert("nine hundred ninety nine")).toEqual(999);
     });
 
-    it("it should convert numbers >= 1000 and <= 9999", function(){
+    it("it should convert numbers >= 1000 and <= 999999", function(){
         expect(wtn.convert("one thousand")).toEqual(1000);
         expect(wtn.convert("one thousand one hundred eleven")).toEqual(1111);
         expect(wtn.convert("nine thousand nine hundred ninety nine")).toEqual(9999);
+        expect(wtn.convert("ten thousand")).toEqual(10000);
+        expect(wtn.convert("twenty thousand")).toEqual(20000);
+        expect(wtn.convert("thirty thousand five hundred twenty nine")).toEqual(30529);
     });
 
 });
