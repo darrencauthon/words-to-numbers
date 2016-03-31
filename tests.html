@@ -165,6 +165,12 @@ describe("examples", function(){
         expect(wtn.convert("nine hundred ninety nine thousand nine hundred ninety nine")).toEqual(999999);
     });
 
+    it("it should convert more complicated hundreds", function(){
+        expect(wtn.convert("fifty two hundred")).toEqual(5200);
+        expect(wtn.convert("fifty two hundred thirty four")).toEqual(5234);
+        expect(wtn.convert("ninety nine hundred")).toEqual(9900);
+    });
+
 });
 
 </script>
