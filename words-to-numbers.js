@@ -48,6 +48,7 @@ wtn.regex = function()
     regex.push("[a-z]+");
     regex = "(" + regex.join('|') + ")";
     regex = new RegExp(regex, "gi");
+    wtn.regex = function() { return regex; };
     return regex;
 }
 
