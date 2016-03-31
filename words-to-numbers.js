@@ -73,11 +73,15 @@ wtn.convert = function(input)
     for (var i=0; i < phrases.length; i++){
         var phrase = phrases[i].toLowerCase();
 
-        total += handleComplicatedNumber(phrase);
-        if (this.tens[phrase] != undefined)
+        var complicatedNumber = handleComplicatedNumber(phrase);
+        if (complicatedNumber > 0)
+            total += complicatedNumber;
+        else if (this.tens[phrase] != undefined)
             total += this.tens[phrase];
-        if (this.singles[phrase] != undefined)
+        else if (this.singles[phrase] != undefined)
             total += this.singles[phrase];
+        else if (phrase.toLowerCase() != 'and')
+            return undefined;
     }
     return total;
 }
