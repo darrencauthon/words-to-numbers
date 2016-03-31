@@ -36,20 +36,17 @@ wtn.tens = {
 
 wtn.convert = function(input)
 {
-    var words = input.match(/([a-z]+ thousand|[a-z]+ hundred|[a-z]+)/gi);
+    var words = input.match(/([a-z ]+ thousand|[a-z]+ hundred|[a-z]+)/gi);
     var total = 0;
     for (var i=0; i < words.length; i++){
         var word = words[i].toLowerCase();
         if (word.indexOf('thousand') > -1)
         {
-            var counts = [word.split(' ')[0]];
-            for (j=i-1; j >= 0; j--)
-                counts.unshift(words[j]);
+            var counts = word.split(' ');
+            counts.pop();
             total += wtn.convert(counts.join(' ')) * 1000;
-            for (j=i-1; j >= 0; j--)
-                total -= wtn.convert(words[j]);
         }
-        if (word.indexOf('hundred') > -1)
+        else if (word.indexOf('hundred') > -1)
             total += wtn.convert(word.split(' ')[0]) * 100;
         if (this.tens[word] != undefined)
             total += this.tens[word];
