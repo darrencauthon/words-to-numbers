@@ -54,21 +54,19 @@ wtn.regex = function()
 wtn.convert = function(input)
 {
     var phrases = input.match(wtn.regex());
+
     var total = 0;
 
     for (var i=0; i < phrases.length; i++){
         var phrase = phrases[i].toLowerCase();
 
         var complicatedNumber = wtn.handleComplicatedNumber(phrase);
-        if (complicatedNumber > 0)
-            total += complicatedNumber;
-        else if (this.tens[phrase] != undefined)
-            total += this.tens[phrase];
-        else if (this.singles[phrase] != undefined)
-            total += this.singles[phrase];
-        else if (phrase.toLowerCase() != 'and')
-            return undefined;
+        if (complicatedNumber > 0)                  total += complicatedNumber;
+        else if (this.tens[phrase] != undefined)    total += this.tens[phrase];
+        else if (this.singles[phrase] != undefined) total += this.singles[phrase];
+        else if (phrase.toLowerCase() != 'and')     return undefined;
     }
+
     return total;
 }
 
