@@ -55,7 +55,13 @@ wtn.convert = function(input)
         return 0;
     }
 
-    var phrases = input.match(/([a-z ]+ million|[a-z ]+ thousand|[a-z ]+ hundred|[a-z]+)/gi);
+    var regex = [];
+    for(var key in wtn.complicated_numbers)
+        regex.push("[a-z ]+ " + key);
+    regex.push("[a-z]+");
+    regex = "(" + regex.join('|') + ")";
+    regex = new RegExp(regex, "gi");
+    var phrases = input.match(regex);
     var total = 0;
 
     for (var i=0; i < phrases.length; i++){
