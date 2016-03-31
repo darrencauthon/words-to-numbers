@@ -53,26 +53,13 @@ wtn.regex = function()
 
 wtn.convert = function(input)
 {
-    var handleComplicatedNumber = function(phrase)
-    {
-        for(var key in wtn.complicated_numbers){
-            if (phrase.indexOf(key) > -1)
-            {
-                var words = phrase.split(' ');
-                words.pop();
-                return wtn.convert(words.join(' ')) * wtn.complicated_numbers[key];
-            }
-        }
-        return 0;
-    }
-
     var phrases = input.match(wtn.regex());
     var total = 0;
 
     for (var i=0; i < phrases.length; i++){
         var phrase = phrases[i].toLowerCase();
 
-        var complicatedNumber = handleComplicatedNumber(phrase);
+        var complicatedNumber = wtn.handleComplicatedNumber(phrase);
         if (complicatedNumber > 0)
             total += complicatedNumber;
         else if (this.tens[phrase] != undefined)
@@ -84,3 +71,18 @@ wtn.convert = function(input)
     }
     return total;
 }
+
+
+wtn.handleComplicatedNumber = function(phrase)
+{
+    for(var key in wtn.complicated_numbers){
+        if (phrase.indexOf(key) > -1)
+        {
+            var words = phrase.split(' ');
+            words.pop();
+            return wtn.convert(words.join(' ')) * wtn.complicated_numbers[key];
+        }
+    }
+    return 0;
+}
+
