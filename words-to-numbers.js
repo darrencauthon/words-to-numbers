@@ -36,10 +36,12 @@ wtn.tens = {
 
 wtn.convert = function(input)
 {
-    var words = input.match(/([a-z]+)/gi);
+    var words = input.match(/([a-z]+ hundred|[a-z]+)/gi);
     var total = 0;
     for (var i=0; i < words.length; i++){
         var word = words[i].toLowerCase();
+        if (word.indexOf('hundred') > -1)
+            total += wtn.convert(word.split(' ')[0]) * 100;
         if (this.tens[word] != undefined)
             total += this.tens[word];
         if (this.singles[word] != undefined)

@@ -147,6 +147,13 @@ describe("examples", function(){
         expect(wtn.convert("thirty-three")).toEqual(33);
     });
 
+    it("it should convert numbers >= 100 and <= 199", function(){
+        expect(wtn.convert("one hundred")).toEqual(100);
+        expect(wtn.convert("one hundred one")).toEqual(101);
+        expect(wtn.convert("five hundred seventy-seven")).toEqual(577);
+        expect(wtn.convert("nine hundred ninety nine")).toEqual(999);
+    });
+
 });
 
 </script>
