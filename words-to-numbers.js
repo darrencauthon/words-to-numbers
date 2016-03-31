@@ -40,6 +40,17 @@ wtn.complicated_numbers = {
                              'hundred':  100,
                           };
 
+wtn.regex = function()
+{
+    var regex = [];
+    for(var key in wtn.complicated_numbers)
+        regex.push("[a-z ]+ " + key);
+    regex.push("[a-z]+");
+    regex = "(" + regex.join('|') + ")";
+    regex = new RegExp(regex, "gi");
+    return regex;
+}
+
 wtn.convert = function(input)
 {
     var handleComplicatedNumber = function(phrase)
@@ -55,13 +66,7 @@ wtn.convert = function(input)
         return 0;
     }
 
-    var regex = [];
-    for(var key in wtn.complicated_numbers)
-        regex.push("[a-z ]+ " + key);
-    regex.push("[a-z]+");
-    regex = "(" + regex.join('|') + ")";
-    regex = new RegExp(regex, "gi");
-    var phrases = input.match(regex);
+    var phrases = input.match(wtn.regex());
     var total = 0;
 
     for (var i=0; i < phrases.length; i++){
