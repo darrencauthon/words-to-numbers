@@ -178,6 +178,10 @@ describe("examples", function(){
         expect(wtn.convert("nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine")).toEqual(999999999);
     });
 
+    it("it should allow AND as a word we ignore", function(){
+        expect(wtn.convert("one million and one")).toEqual(1000001);
+    });
+
 });
 
 </script>
